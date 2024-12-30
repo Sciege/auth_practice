@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +12,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Succes!!"),
       ),
-      body: Container(),
+      body: Center(
+        child: Text('${user?.email?? User}'),
+      )
     );
   }
 }
